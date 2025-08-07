@@ -1,0 +1,21 @@
+document.addEventListener('DOMContentLoaded', () => {
+const sideMenu = document.getElementById('sideMenu');
+const mainContent = document.getElementById('mainContent');
+const openBtn = document.getElementById('openMenu');
+const closeBtn = document.getElementById('closeMenu');
+
+// Initially, main is active and menu is inert
+sideMenu.inert = true;
+
+openBtn.addEventListener('click', () => {
+  sideMenu.classList.add('visible');
+  sideMenu.inert = false;       // menu becomes active
+  mainContent.inert = true;     // main content becomes inactive
+});
+
+closeBtn.addEventListener('click', () => {
+  sideMenu.classList.remove('visible');
+  sideMenu.inert = true;        // menu becomes inactive
+  mainContent.inert = false;    // main content becomes active again
+});
+});
